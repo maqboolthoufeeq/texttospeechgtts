@@ -1,0 +1,34 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'style.css'%}">
+    <title>Text to Speech</title>
+  </head>
+  <body>
+ 
+
+    <div class="formclass">
+      <h1>Text to Speech Program</h1>
+      <form action="checker" method="get">
+        {% csrf_token %}
+        <h3>Enter you Text</h3>
+        <textarea rows="8" cols="50" name="inputtext" placeholder="Enter Your Text" required></textarea><br><br>
+        <button type="submit" name="button">Submit</button>
+        <h1>{{flag}}</h1>
+      </form>
+      {% if flag2 == True %}
+       <audio controls>
+        <source src="{% static 'temp.mp3' %}" type="audio/mpeg">
+    </audio>
+    {% endif %}
+      <h4>*Word limit is limited to 1000 words </h4>
+    </div>
+    <div class="formclass">
+      Name  : Maqbool Thoufeeq T<br>
+      Phone : +91-9048264453 <br>
+      Email : maqboolthoufeeq.t@gmail.com <br>
+    </div>
+  </body>
+</html>
